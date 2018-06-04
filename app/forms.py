@@ -13,5 +13,5 @@ class ExampleForm(Form):
 # recaptcha = RecaptchaField(u'Recaptcha')
 
 class LoginForm(Form):
-    user = TextField(u'Usuário', validators=[Required()])
-    password = PasswordField(u'Senha', validators=[Required()])
+    user = TextField(u'Username', validators=[Required()])
+    password = PasswordField(u'Password', validators=[Required()])
