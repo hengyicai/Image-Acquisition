@@ -10,11 +10,11 @@
             </li>
         </ul>
         <ul class="nav pull-right">
-            <li id="navLog">
+            <li id="navSignIn">
                 <a href="#signInModal" role="button" data-toggle="modal">登录</a>
             </li>
             <li class="dropdown hide" id="navUser">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户名
+                <a id="aUsername" href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -35,19 +35,20 @@
     </div>
     <div class="modal-body">
         <form class="form-horizontal">
-            <div class="control-group">
-              <label class="control-label" for="inputEmail" id="navUsername">用户名</label>
-              <div class="controls">
-                <input type="text" id="username" placeholder="Email">
-              </div>
+            <div id="controlUsername" class="control-group">
+                <label class="control-label" for="username" id="navUsername">用户名</label>
+                <div class="controls">
+                    <input type="text" id="username" placeholder="Username">
+                </div>
             </div>
-            <div class="control-group">
-              <label class="control-label" for="inputPassword">密码</label>
-              <div class="controls">
-                <input type="password" id="password" placeholder="Password">
-              </div>
+            <div id="controlPassword" class="control-group">
+                <label class="control-label" for="password">密码</label>
+                <div class="controls">
+                    <input type="password" id="password" placeholder="Password">
+                </div>
             </div>
-          </form>
+            <p id="passwordInfo" class="hide pull-right text-error">用户名或密码错误</p>
+        </form>
     </div>
     <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>

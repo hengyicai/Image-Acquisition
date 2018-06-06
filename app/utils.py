@@ -18,7 +18,8 @@ def query_db(query, args=(), one=False):
     return (rv[0] if rv else None) if one else rv
 
 
-def tail(f, lines=20):
+def tail(file_name, lines=20):
+    f = open(file_name)
     total_lines_wanted = lines
 
     BLOCK_SIZE = 1024
@@ -43,4 +44,5 @@ def tail(f, lines=20):
         block_end_byte -= BLOCK_SIZE
         block_number -= 1
     all_read_text = ''.join(reversed(blocks))
+    f.close()
     return '\n'.join(all_read_text.splitlines()[-total_lines_wanted:])

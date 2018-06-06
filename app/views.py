@@ -25,11 +25,11 @@ logger.setLevel(logging.INFO)
 
 @app.route('/user_login', methods=['POST'])
 def user_login():
-    params = request.args
+    params = request.form
     user_name = params.get('username')
     passwd = params.get('pwd')
     query_res = query_db("SELECT * FROM userinfo WHERE username=?", args=(user_name,), one=True)
-    if query_res['pwd'] == passwd:
+    if query_res is not None and query_res['pwd'] == passwd:
         response = {
             'code': 0,
             'msg': 'success!'
@@ -39,7 +39,7 @@ def user_login():
     else:
         response = {
             'code': 1,
-            'msg': 'user password does not exist!'
+            'msg': 'user does not exist!'
         }
         logger.warning('{} attempt to log in the system with the wrong password!'.format(user_name))
     return jsonify(response)
@@ -71,7 +71,7 @@ def upload():
     return render_template('upload.html')
 
 
-@app.route('/tail_log/', methods=['POST'])
+@app.route('/tail_log', methods=['POST'])
 def tail_log():
     log_content = ''
     if os.path.exists(LOG_FILE):
@@ -105,36 +105,3 @@ def save():
 @app.route('/view/<id>/')
 def view(id):
     return render_template('view.html')
-
-
-# === User login methods ===
-
-@app.before_request
-def before_request():
-    g.user = current_user
-
-
-@lm.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-
-@app.route('/login/', methods=['GET', 'POST'])
-def login():
-    if g.user is not None and g.user.is_authenticated():
-        return redirect(url_for('index'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        login_user(g.user)
-
-    return render_template('login.html',
-                           title='Sign In',
-                           form=form)
-
-
-@app.route('/logout/')
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
-
-# ====================
