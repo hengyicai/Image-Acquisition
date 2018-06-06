@@ -6,6 +6,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.pymongo import PyMongo
 from flask.ext.login import LoginManager
 from flask_dropzone import Dropzone
+import sqlite3
+from flask import g
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
