@@ -6,6 +6,7 @@ from flask.ext.login import login_user, logout_user, current_user, login_require
 from app import app, lm
 from forms import ExampleForm, LoginForm
 from models import User
+from utils import query_db
 
 
 @app.route('/')
@@ -18,6 +19,9 @@ def upload():
     if request.method == 'POST':
         f = request.files.get('file')
         f.save(os.path.join(app.config['UPLOADED_PATH'], f.filename))
+        print(session.keys())
+        user = query_db('select * from userinfo', one=True)
+        print(user)
     return render_template('upload.html')
 
 

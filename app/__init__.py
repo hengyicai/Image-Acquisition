@@ -6,6 +6,8 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.pymongo import PyMongo
 from flask.ext.login import LoginManager
 from flask_dropzone import Dropzone
+import sqlite3
+from flask import g
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -31,5 +33,23 @@ dropzone = Dropzone(app)
 lm = LoginManager()
 lm.setup_app(app)
 lm.login_view = 'login'
+
+DATABASE = './app/db/image_ac.db'
+
+
+def connect_db():
+    return sqlite3.connect(DATABASE)
+
+
+@app.before_request
+def before_request():
+    g.db = connect_db()
+
+
+@app.teardown_request
+def teardown_request(exception):
+    if hasattr(g, 'db'):
+        g.db.close()
+
 
 from app import views, models
