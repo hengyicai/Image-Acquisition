@@ -10,10 +10,7 @@
             </li>
         </ul>
         <ul class="nav pull-right">
-            <li id="navSignIn">
-                <a href="#signInModal" role="button" data-toggle="modal">登录</a>
-            </li>
-            <li class="dropdown hide" id="navUser">
+            <li class="dropdown" id="navUser">
                 <a id="aUsername" href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <b class="caret"></b>
                 </a>
@@ -24,34 +21,5 @@
                 </ul>
             </li>
         </ul>
-    </div>
-</div>
-
-<!-- Sign In Modal -->
-<div id="signInModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">用户登录</h3>
-    </div>
-    <div class="modal-body">
-        <form class="form-horizontal">
-            <div id="controlUsername" class="control-group">
-                <label class="control-label" for="username" id="navUsername">用户名</label>
-                <div class="controls">
-                    <input type="text" id="username" placeholder="Username">
-                </div>
-            </div>
-            <div id="controlPassword" class="control-group">
-                <label class="control-label" for="password">密码</label>
-                <div class="controls">
-                    <input type="password" id="password" placeholder="Password">
-                </div>
-            </div>
-            <p id="passwordInfo" class="hide pull-right text-error">用户名或密码错误</p>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-        <button class="btn btn-primary" id="signIn">登录</button>
     </div>
 </div>

@@ -19,9 +19,24 @@ logger.addHandler(hdlr)
 logger.setLevel(logging.INFO)
 
 
-# @app.route('/')
-# def index():
-#     return render_template('index.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/is_login', methods=['POST'])
+def is_login():
+    if 'username' in session and session['username'] != None:
+        response = {
+            'code': 0,
+            'msg': 'success!',
+            'data': session['username']
+        }
+    else:
+        response = {
+            'code': 1,
+            'msg': 'user does not login!'
+        }
+    return jsonify(response)
 
 @app.route('/user_login', methods=['POST'])
 def user_login():
@@ -55,7 +70,7 @@ def user_logout():
     })
 
 
-@app.route('/upload/', methods=['POST', 'GET'])
+@app.route('/upload', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
         f = request.files.get('file')
@@ -84,7 +99,7 @@ def tail_log():
     return jsonify(response)
 
 
-@app.route('/list/')
+@app.route('/list')
 def posts():
     return render_template('list.html')
 
