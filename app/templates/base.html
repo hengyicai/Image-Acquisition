@@ -1,49 +1,47 @@
-{% extends "bootstrap_base.html" %}
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+    {%- block html %}
 
-{% block title %}Base{% endblock %}
+    <head>
+        {%- block head %}
+            <title>{% block title %}{{title|default}}{% endblock title %}</title>
 
-{% block body_content %}
+            {%- block metas %}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"> {%- endblock metas %}
 
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <a class="brand" href="#">影像采集</a>
-                        <ul class="nav">
-                            <li class="active"><a href="/">主页</a></li>
-                            <li><a href="/list">采集日志</a></li>
-                            <li><a href="/new">用户管理</a></li>
-                            <li><a href="/upload">影像上传</a></li>
-                        </ul>
-                    </div>
+            <link href="/static/assets/bootstrap.min.css" rel="stylesheet"> 
+            {%- block styles %} 
+            {%- endblock styles %} 
+        {%- endblock head %}
+    </head>
+    <body{% block body_attribs %}{% endblock body_attribs %}>
+        {% block body -%}
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand" href="#">影像采集</a>
+                    <ul class="nav">
+                        <li id="navLog">
+                            <a href="/list">采集日志</a>
+                        </li>
+                        <li id="navImage">
+                            <a href="/upload">影像上传</a>
+                        </li>
+                    </ul>
                 </div>
-
-                <form class="form form-inline pull-right">
-                    <input type="text" class="span2">
-                    <button type="submit" class="btn">Submit</button>
-                </form>
-
             </div>
-        </div>
+            {% block content -%} 
+            {%- endblock content %}
 
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="row">
-                    <div class="span8 offset4">
-                        <ul>
-                            {% for message in messages %}
-                                <li>{{ message }} </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-            {% endif %}
-        {% endwith %}
+            <script src="/static/assets/jquery-1.9.1.js"></script>
+            <script src="/static/assets/bootstrap.min.js"></script> 
+            
+            {% block scripts %} 
+            {%- endblock scripts %} 
 
-        {% block main_content %}{% endblock %}
+        {%- endblock body %}
+    </body>
+    {%- endblock html %}
 
-    </div>
-
-{% endblock %}
+</html>
+{% endblock doc -%}
