@@ -3,9 +3,16 @@
 
 {% block title %}upload!{% endblock %}
 
-{% block main_content %}
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/image.css">
+{% endblock%}
+
+{% block content %}
     {{ dropzone.load() }}
     {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
     {{ dropzone.create(action_view='upload') }}
 {% endblock %}
 
+{% block scripts %}
+<script src="/static/scripts/image.js"></script>
+{% endblock %}
