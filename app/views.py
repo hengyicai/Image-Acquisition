@@ -26,13 +26,6 @@ def posts():
     return render_template('list.html')
 
 
-@app.route('/new/')
-@login_required
-def new():
-    form = ExampleForm()
-    return render_template('new.html', form=form)
-
-
 @app.route('/save/', methods=['GET', 'POST'])
 @login_required
 def save():

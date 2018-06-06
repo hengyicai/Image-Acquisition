@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% import "bootstrap_wtf.html" as wtf %}
 
-{% block title %}Lista!{% endblock %}
+{% block title %}List{% endblock %}
 
-{% block main_content %}
+{% block styles %}
+<link rel="stylesheet" href="/static/styles/log.css">
+{% endblock%}
+{% block content %}
 
     <h1>Listagem</h1>
 
@@ -58,4 +61,7 @@
         </div>
     </div>
 
+{% endblock %}
+{% block scripts %}
+<script src="/static/scripts/log.js"></script>
 {% endblock %}
