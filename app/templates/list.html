@@ -6,60 +6,17 @@
 {% block styles %}
 <link rel="stylesheet" href="/static/styles/log.css">
 {% endblock%}
+
 {% block content %}
-
-    <h1>Listagem</h1>
-
-    <div class="row">
-        <div class="span12">
-
-            Listagem...
-
-            <table class="table">
-                <tr>
-                    <th>Coluna 1</th>
-                    <th>Coluna 2</th>
-                    <th>Coluna 3</th>
-                    <th>Coluna 4</th>
-                    <th>Coluna 5</th>
-                    <th>Coluna 6</th>
-                </tr>
-                <tr>
-                    <td>valor 1</td>
-                    <td>valor 2</td>
-                    <td>valor 3</td>
-                    <td>valor 4</td>
-                    <td>valor 5</td>
-                    <td>valor 6</td>
-                </tr>
-                <tr>
-                    <td>valor 1</td>
-                    <td>valor 2</td>
-                    <td>valor 3</td>
-                    <td>valor 4</td>
-                    <td>valor 5</td>
-                    <td>valor 6</td>
-                </tr>
-                <tr>
-                    <td>valor 1</td>
-                    <td>valor 2</td>
-                    <td>valor 3</td>
-                    <td>valor 4</td>
-                    <td>valor 5</td>
-                    <td>valor 6</td>
-                </tr>
-                <tr>
-                    <td>valor 1</td>
-                    <td>valor 2</td>
-                    <td>valor 3</td>
-                    <td>valor 4</td>
-                    <td>valor 5</td>
-                    <td>valor 6</td>
-                </tr>
-            </table>
-
-        </div>
-    </div>
+<div class="container">
+    <select id = "content" class="content" multiple="multiple">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+</div>
 
 {% endblock %}
 {% block scripts %}

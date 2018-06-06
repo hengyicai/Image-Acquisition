@@ -1,0 +1,56 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="#">影像采集</a>
+        <ul class="nav">
+            <li id="navLog">
+                <a href="/list">采集日志</a>
+            </li>
+            <li id="navImage">
+                <a href="/upload">影像上传</a>
+            </li>
+        </ul>
+        <ul class="nav pull-right">
+            <li id="navLog">
+                <a href="#signInModal" role="button" data-toggle="modal">登录</a>
+            </li>
+            <li class="dropdown hide" id="navUser">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户名
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a id="signOut">注销</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">用户登录</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label" for="inputEmail" id="navUsername">用户名</label>
+              <div class="controls">
+                <input type="text" id="username" placeholder="Email">
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputPassword">密码</label>
+              <div class="controls">
+                <input type="password" id="password" placeholder="Password">
+              </div>
+            </div>
+          </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+        <button class="btn btn-primary" id="signIn">登录</button>
+    </div>
+</div>

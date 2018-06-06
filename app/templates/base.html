@@ -1,47 +1,37 @@
-{% block doc -%}
 <!DOCTYPE html>
-<html{% block html_attribs %}{% endblock html_attribs %}>
-    {%- block html %}
+<html>
 
     <head>
-        {%- block head %}
-            <title>{% block title %}{{title|default}}{% endblock title %}</title>
 
-            {%- block metas %}
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"> {%- endblock metas %}
+        <title>{% block title %}{{title|default}}{% endblock title %}</title>
 
-            <link href="/static/assets/bootstrap.min.css" rel="stylesheet"> 
-            {%- block styles %} 
-            {%- endblock styles %} 
-        {%- endblock head %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        
+        {% block metas %} 
+        
+        {% endblock metas %}
+
+        <link href="/static/assets/bootstrap.min.css" rel="stylesheet"> 
+        
+        {% block styles %} 
+        
+        {% endblock styles %}
+
     </head>
-    <body{% block body_attribs %}{% endblock body_attribs %}>
-        {% block body -%}
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a class="brand" href="#">影像采集</a>
-                    <ul class="nav">
-                        <li id="navLog">
-                            <a href="/list">采集日志</a>
-                        </li>
-                        <li id="navImage">
-                            <a href="/upload">影像上传</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            {% block content -%} 
-            {%- endblock content %}
+    <body>
 
-            <script src="/static/assets/jquery-1.9.1.js"></script>
-            <script src="/static/assets/bootstrap.min.js"></script> 
-            
-            {% block scripts %} 
-            {%- endblock scripts %} 
+        {% include "nav.html" %}
+        {% block content %} 
+        
+        {% endblock content %}
 
-        {%- endblock body %}
+        <script src="/static/assets/jquery-1.9.1.js"></script>
+        <script src="/static/assets/bootstrap.min.js"></script> 
+        <script src="/static/scripts/nav.js"></script>
+        
+        {% block scripts %} 
+        
+        {% endblock scripts %}
+
     </body>
-    {%- endblock html %}
-
 </html>
-{% endblock doc -%}
