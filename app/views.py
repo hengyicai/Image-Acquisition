@@ -1,14 +1,15 @@
 # -*- encoding: utf-8 -*-
 
-import os
-from flask import url_for, redirect, render_template, flash, g, session, Flask, request
-from flask.ext.login import login_user, logout_user, current_user, login_required
-from app import app, lm
-from forms import ExampleForm, LoginForm
-from models import User
-from utils import query_db, tail
-from flask import jsonify
 import logging
+import os
+
+from flask import jsonify
+from flask import render_template, flash, session, request
+from flask.ext.login import login_required
+
+from app import app
+from forms import ExampleForm
+from utils import query_db, tail
 
 LOG_FILE = 'app/log/app.log'
 logger = logging.getLogger(__name__)
@@ -22,6 +23,7 @@ logger.setLevel(logging.INFO)
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/is_login', methods=['POST'])
 def is_login():
@@ -37,6 +39,7 @@ def is_login():
             'msg': 'user does not login!'
         }
     return jsonify(response)
+
 
 @app.route('/user_login', methods=['POST'])
 def user_login():

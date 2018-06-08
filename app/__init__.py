@@ -1,13 +1,11 @@
 # -*- encoding: utf-8 -*-
 import os
+
 from flask import Flask
 from flask.ext.bootstrap import Bootstrap
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.pymongo import PyMongo
 from flask.ext.login import LoginManager
+from flask.ext.sqlalchemy import SQLAlchemy
 from flask_dropzone import Dropzone
-import sqlite3
-from flask import g
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 

@@ -1,4 +1,3 @@
-from app import g
 import sqlite3
 
 DATABASE = './app/db/image_ac.db'
